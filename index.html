@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f9f7f2;
+  color: #333;
+}
+
+.topbar {
+  background-color: #f2ead8;
+  color: #5b4b36;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e2d6b8;
+}
+
+.breaking-bar {
+  background-color: #d2b48c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 40px;
+  gap: 10px;
+  padding: 0 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.breaking-bar span {
+  background-color: #c2a676;
+  padding: 6px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.scroll-wrapper {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.scroll-text {
+  position: absolute;
+  white-space: nowrap;
+  animation: scrollNews 20s linear infinite;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes scrollNews {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 15px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-bottom: 3px solid #d2b48c;
+}
+
+nav img.logo {
+  height: 50px;
+  margin-right: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5b4b36;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #a8864a;
+}
+
+nav a.active {
+  border-bottom: 2px solid #a8864a;
+  padding-bottom: 2px;
+  color: #a8864a;
+}
+
+.hero {
+  background-color: #fff;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #3d3527;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #3d3527;
+}
+
+.card a {
+  text-decoration: none;
+  color: #5b4b36;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2ead8;
+  color: #5b4b36;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div id="datetime"></div>
+</div>
+
+<div class="breaking-bar">
+  <span>BREAKING NEWS</span>
+  <div class="scroll-wrapper">
+    <div class="scroll-text">
+      <b>Several countries offer aid after Tino, Uwan devastate PH: Malacañang • <b>F1 Verstappen's charge to P3 in Sao Paulo GP • 
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="active">Home</a>
+  <a href="newspage.html">News</a>
+  <a href="Editorial.html">Editorial</a>
+  <a href="comics.html">Comics</a>
+  <a href="fashion.html">Fashion</a>
+  <a href="entertainment.html">Entertainment</a>
+  <a href="sports.html">Sports</a>
+  <a href="weather and traffic.html">Weather & Traffic Tracker</a>
+</nav>
+
+<section class="hero">
+  <h1>Welcome to The STK 99.9</h1>
+  <p>Serbisyong Tapat Kabayan, Your trusted source for news, entertainment, sports, fashion, comics, and live weather & traffic updates. Stay informed, stay connected Kabayan!</p>
+</section>
+
+<section class="cards">
+  <div class="card"><h3>News</h3><a href="newspage.html">Read Latest News →</a></div>
+  <div class="card"><h3>Editorial</h3><a href="editorial.html">Explore Opinions →</a></div>
+  <div class="card"><h3>Comics</h3><a href="comics.html">Read Comics →</a></div>
+  <div class="card"><h3>Fashion</h3><a href="fashion.html">View Trends →</a></div>
+  <div class="card"><h3>Entertainment</h3><a href="entertainment.html">Explore Entertainment →</a></div>
+  <div class="card"><h3>Sports</h3><a href="sports.html">Motorsports & More →</a></div>
+  <div class="card"><h3>Weather & Traffic</h3><a href="weather and traffic.html">Check Maps →</a></div>
+</section>
+
+
+
+<script>
+function updateTime(){
+  const now = new Date();
+  document.getElementById('datetime').textContent =
+    now.toLocaleString('en-US', { weekday:'short', month:'long', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit', second:'2-digit' });
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+
+</body>
+</html>
