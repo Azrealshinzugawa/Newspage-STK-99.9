@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather & Traffic Tracker</title>
+  <style>
+   body {
+font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f9f7f2;
+  color: #333;
+
+  background-image: url('img/weather.gif');
+  background-size: cover;       
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center;  
+}
+
+  .topbar {
+    background-color: #f2ead8;
+    color: #5b4b36;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e2d6b8;
+  }
+
+ .breaking-bar {
+  background-color: #d2b48c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;   
+  height: 40px;
+  gap: 10px;
+  padding: 0 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.breaking-bar span {
+  background-color: #c2a676;
+  padding: 6px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+
+.scroll-wrapper {
+  overflow: hidden;
+  flex: 1;                 
+  position: relative;
+  height: 100%;
+}
+
+.scroll-text {
+  position: absolute;
+  white-space: nowrap;
+  animation: scrollNews 20s linear infinite;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Animation */
+@keyframes scrollNews {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 15px 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border-bottom: 3px solid #d2b48c;
+    }
+
+    nav img.logo {
+      height: 45px;
+      margin-right: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5b4b36;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #a8864a;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid #a8864a;
+      padding-bottom: 2px;
+      color: #a8864a;
+    }
+
+    .tracker-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.tracker {
+  flex: 1 1 100%;       
+  min-height: 70vh;     
+  border: 2px solid #d2b48c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+@media screen and (min-width: 1000px) {
+  .tracker {
+    flex: 1 1 48%;      
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f2ead8;
+      color: #5b4b36;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+  <div id="datetime">Mon, November 10, 2025 at 9:21 PM</div>
+</div>
+
+
+<div class="breaking-bar">
+  <span>BREAKING NEWS</span>
+  <div class="scroll-wrapper">
+    <div class="scroll-text">
+      Heavy rain expected in Metro Manila • New traffic advisories issued • Flights delayed due to storms 
+    </div>
+  </div>
+</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="newspage.html">News</a>
+    <a href="Editorial.html">Editorial</a>
+    <a href="comics.html">Comics</a>
+    <a href="fashion.html">Fashion</a>
+    <a href="entertainment.html">Entertainment</a>
+    <a href="sports.html">Sports</a>
+    <a href="weathertraffic.html" class="active">Weather & Traffic Tracker</a>
+  </nav>
+
+  <div class="tracker-container">
+ 
+  <div class="tracker">
+    <iframe 
+      src="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=14.5995&lon=120.9842&zoom=6" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="tracker">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d243646.185994542!2d121.0277!3d14.5995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph&layer=c" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+<script>
+function updateTime() {
+  const now = new Date();
+  document.getElementById('datetime').textContent =
+    now.toLocaleString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' });
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+  
+</body>
+</html>
