@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comics</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f9f7f2;
+  color: #333;
+
+  background-image: url('img/comics.gif');
+  background-size: cover;       
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center;  
+}
+
+.topbar {
+  background-color: #f2ead8;
+  color: #5b4b36;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e2d6b8;
+}
+
+.breaking-bar {
+  background-color: #d2b48c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 40px;
+  gap: 10px;
+  padding: 0 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.breaking-bar span {
+  background-color: #c2a676;
+  padding: 6px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.scroll-wrapper {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.scroll-text {
+  position: absolute;
+  white-space: nowrap;
+  animation: scrollNews 20s linear infinite;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes scrollNews {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 15px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid #d2b48c;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5b4b36;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #a8864a;
+}
+
+nav a.active {
+  border-bottom: 2px solid #a8864a;
+  padding-bottom: 2px;
+  color: #a8864a;
+}
+
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.article {
+  background: #fff;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.article:hover {
+  transform: translateY(-4px);
+}
+
+.article img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px;
+  border-radius: 10px;
+}
+
+.article h2 {
+  color: #3d3527;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2ead8;
+  color: #5b4b36;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div id="datetime"></div>
+</div>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="newspage.html">News</a>
+  <a href="Editorial.html">Editorial</a>
+  <a href="comics.html" class="active">Comics</a>
+  <a href="fashion.html">Fashion</a>
+  <a href="entertainment.html">Entertainment</a>
+  <a href="sports.html">Sports</a>
+  <a href="weather and traffic.html">Weather & Traffic</a>
+</nav>
+
+<main>
+  <section class="article">
+    <img src="img/cmc1.jpg" alt="Comic 1">
+    <h2>©PhilStar</h2>
+  </section>
+
+  <section class="article">
+    <img src="img/cmc2.jpg" alt="Comic 2">
+    <h2>©PhilStar</h2>
+  </section>
+
+  <section class="article">
+    <img src="img/cmc3.jpg" alt="Comic 3">
+    <h2>©PhilStar</h2>
+  </section>
+</main>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  document.getElementById("datetime").textContent = now.toLocaleString("en-US", {
+    weekday: "short",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+
+</body>
+</html>
